@@ -3,17 +3,20 @@
     {
       "id": 1,
       "task": "Wash Amy's car",
-      "completed": false
+      "completed": false,
+      "createdAt": "4/6/23"
     },
     {
       "id": 2,
       "task": "Take out the trash",
-      "completed": false
+      "completed": false,
+      "createdAt": "4/6/23"
     },
     {
       "id": 3,
       "task": "Get an oil change",
-      "completed": false
+      "completed": false,
+      "createdAt": "4/6/23"
     }
   ]
 }

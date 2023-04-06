@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 80%;
+  margin: auto;
+}
+
+.app-container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-top: 2%;
+  padding: 3%;
+}
+
+.todo-label {
+  text-align: left;
+}
+
+.ui.button {
+  display: flex;
+}
+
+.search-container {
+  width: 50%;
+  display: flex;
+}
+
+.ui.celled {
+  margin-top: 10px;
+}
+
+.ui.celled.list {
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.content {
+  padding: 10px 0;
+  width: 100%;
+}
+
+.header {
+  font-weight: bold;
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.header p {
+  margin: 0;
+}
+
+.header #task {
+  grid-column: 1/8;
+  text-align: center;
+  margin-left: 7px;
+  text-align: left;
+}
+
+.header #created {
+  grid-column: 8/10;
+  text-align: center;
+  margin-left: 7px;
+}
+
+.header #actions {
+  grid-column: 10/-1;
+  text-align: center;
+  margin-left: 7px;
+}
+
+.todo-list {
+  margin-top: 5%;
+}
+
+.task {
+  grid-column: 1/8;
+  cursor: pointer;
+}
+
+.created {
+  grid-column: 8/10;
+  text-align: center;
+}
+
+.actions {
+  grid-column: 10/-1;
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+  margin: auto;
+}
+
+.icons i {
+  cursor: pointer;
+}
+
+.content.icons {
+  /* border-bottom: 3px solid red; */
+}

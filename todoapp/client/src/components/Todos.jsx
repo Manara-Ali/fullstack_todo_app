@@ -12,8 +12,19 @@ const Todos = () => {
 
   const todosList = todos.map((element) => {
     return (
-      <div key={element.id}>
-        <p>{element.task}</p>
+      <div key={element.id} className="ui celled list">
+        <div className="item task">
+          <div className="content">{element.task}</div>
+        </div>
+        <div className="item created">
+          <div className="content">{element.createdAt}</div>
+        </div>
+        <div className="item actions">
+          <div className="content icons">
+            <i className="trash alternate outline icon"></i>
+            <i class="edit outline icon"></i>
+          </div>
+        </div>
       </div>
     );
   });
@@ -23,8 +34,12 @@ const Todos = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Todos Here</h1>
+    <div className="todo-list">
+      <div className="header">
+        <p id="task">Task</p>
+        <p id="created">Created On</p>
+        <p id="actions">Actions</p>
+      </div>
       {todosList}
     </div>
   );
