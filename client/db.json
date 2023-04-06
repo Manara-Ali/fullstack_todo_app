@@ -4,6 +4,16 @@
       "id": 1,
       "task": "Wash Amy's car",
       "completed": false
+    },
+    {
+      "id": 2,
+      "task": "Take out the trash",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "task": "Get an oil change",
+      "completed": false
     }
   ]
 }
