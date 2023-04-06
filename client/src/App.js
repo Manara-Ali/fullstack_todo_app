@@ -1,9 +1,10 @@
 import React from "react";
+import Todos from "./components/Todos";
 
 const App = () => {
   return (
     <div>
-      <h1>App Component</h1>
+      <Todos />
     </div>
   );
 };
