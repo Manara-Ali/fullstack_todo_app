@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTodos, deleteTodo, updateTodo } from "../store";
 import Modal from "./Modal";
+import { ModalContext } from "../context/ModalContext";
 
 const Todos = () => {
   // Create a dispatch function
   const dispatch = useDispatch();
+
+  const { modalOpen, setModalOpen } = useContext(ModalContext);
 
   const { data: todos } = useSelector((state) => {
     return state.todosCombinedReducer;
@@ -19,6 +22,11 @@ const Todos = () => {
   // Create a function to update a task
   const handleUpdate = (element, input) => {
     dispatch(updateTodo({ ...element, task: input }));
+  };
+
+  const handleModal = () => {
+    document.querySelector(".app-container").classList.add("blur");
+    setModalOpen(true);
   };
 
   const todosList = todos.map((element) => {
@@ -39,7 +47,12 @@ const Todos = () => {
                 handleDeleteTodo(element);
               }}
             ></i>
-            <i className="edit outline icon"></i>
+            <i
+              className="edit outline icon"
+              onClick={() => {
+                return handleModal();
+              }}
+            ></i>
           </div>
         </div>
       </div>
@@ -58,7 +71,7 @@ const Todos = () => {
         <p id="actions">Actions</p>
       </div>
       {todosList}
-      <Modal />
+      {modalOpen && <Modal />}
     </div>
   );
 };
