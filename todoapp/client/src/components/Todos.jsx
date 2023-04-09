@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTodos, deleteTodo, updateTodo } from "../store";
+import Modal from "./Modal";
 
 const Todos = () => {
   // Create a dispatch function
@@ -57,6 +58,7 @@ const Todos = () => {
         <p id="actions">Actions</p>
       </div>
       {todosList}
+      <Modal />
     </div>
   );
 };
