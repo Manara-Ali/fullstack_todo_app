@@ -107,6 +107,16 @@ body {
   cursor: pointer;
 }
 
-.content.icons {
-  /* border-bottom: 3px solid red; */
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  border: 1px solid red;
+}
+
+.blur {
+  filter: blur(4px);
 }
