@@ -11,6 +11,7 @@ const Todos = () => {
   });
 
   const todosList = todos.map((element) => {
+    console.log(element.id);
     return (
       <div key={element.id} className="ui celled list">
         <div className="item task">
@@ -22,7 +23,7 @@ const Todos = () => {
         <div className="item actions">
           <div className="content icons">
             <i className="trash alternate outline icon"></i>
-            <i class="edit outline icon"></i>
+            <i className="edit outline icon"></i>
           </div>
         </div>
       </div>
@@ -31,7 +32,7 @@ const Todos = () => {
 
   useEffect(() => {
     dispatch(fetchTodos());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="todo-list">
