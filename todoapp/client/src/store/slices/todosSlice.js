@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchTodos } from "../thunks/fetchTodos";
 import { createTodo } from "../thunks/createTodo";
 import { deleteTodo } from "../thunks/deleteTodo";
