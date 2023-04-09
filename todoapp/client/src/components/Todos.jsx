@@ -45,7 +45,6 @@ const Todos = () => {
             <i
               className="edit outline icon"
               onClick={() => {
-                // console.log(element);
                 return handleModal(element);
               }}
             ></i>

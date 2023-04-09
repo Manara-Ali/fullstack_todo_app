@@ -30,7 +30,7 @@ const Confirmation = () => {
           <input
             type="text"
             name="task"
-            // placeholder={editEl.task}
+            placeholder={editEl.task}
             onChange={(e) => setInput(e.target.value)}
             value={input}
           />
