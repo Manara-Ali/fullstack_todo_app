@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos, deleteTodo } from "../store";
+import { fetchTodos, deleteTodo, updateTodo } from "../store";
 
 const Todos = () => {
   // Create a dispatch function
@@ -13,6 +13,11 @@ const Todos = () => {
   // Create a function to delete a task
   const handleDeleteTodo = (todo) => {
     dispatch(deleteTodo(todo));
+  };
+
+  // Create a function to update a task
+  const handleUpdate = (element, input) => {
+    dispatch(updateTodo({ ...element, task: input }));
   };
 
   const todosList = todos.map((element) => {
