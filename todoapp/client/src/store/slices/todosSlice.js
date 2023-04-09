@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchTodos } from "../thunks/fetchTodos";
 import { createTodo } from "../thunks/createTodo";
 import { deleteTodo } from "../thunks/deleteTodo";
+import { updateTodo } from "../thunks/updateTodo";
 
 export const todosSlice = createSlice({
   name: "todos",
@@ -21,6 +22,12 @@ export const todosSlice = createSlice({
     builder.addCase(deleteTodo.fulfilled, (state, action) => {
       state.data = state.data.filter((element) => {
         return element.id !== action.payload.id;
+      });
+    });
+
+    builder.addCase(updateTodo.fulfilled, (state, action) => {
+      state.data = state.data.map((element) => {
+        return element.id === action.payload.id ? action.payload : element;
       });
     });
   },
