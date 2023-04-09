@@ -4,10 +4,12 @@ import axios from "axios";
 export const updateTodo = createAsyncThunk(
   "todo/update",
   async (updatedTodo) => {
-    await axios.patch(
-      `http://localhost:3005/todos/${updatedTodo.id}`,
-      updateTodo
-    );
+    console.log(updatedTodo);
+    await axios({
+      url: `http://localhost:3005/todos/${updatedTodo.id}`,
+      method: "PATCH",
+      data: updatedTodo,
+    });
 
     return updatedTodo;
   }

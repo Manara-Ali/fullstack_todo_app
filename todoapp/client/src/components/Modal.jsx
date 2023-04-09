@@ -1,22 +1,22 @@
 import React, { useContext } from "react";
 import { createPortal } from "react-dom";
 import { ModalContext } from "../context/ModalContext";
+import Confirmation from "./Confirmation";
 
 const Modal = () => {
   const { modalOpen, setModalOpen } = useContext(ModalContext);
 
-  const handleModalClose = () => {
-    document.querySelector(".app-container").classList.remove("blur");
-    setModalOpen(false);
+  const handleModalClose = (e) => {
+    if (e.target === document.querySelector(".modal-container")) {
+      document.querySelector(".app-container").classList.remove("blur");
+      setModalOpen(false);
+    }
   };
   return createPortal(
-    <div
-      className="modal-container"
-      onClick={() => {
-        return handleModalClose();
-      }}
-    >
-      <div className="modal-content">{/* <h1>I am a modal</h1> */}</div>
+    <div className="modal-container" onClick={(e) => handleModalClose(e)}>
+      <div className="modal-content">
+        <Confirmation />
+      </div>
     </div>,
     document.querySelector("#portal-container")
   );

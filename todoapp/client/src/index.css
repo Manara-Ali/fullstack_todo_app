@@ -120,3 +120,29 @@ body {
 .blur {
   filter: blur(4px);
 }
+
+.modal-message.ui.segment {
+  border: 1px solid red;
+  width: 400px;
+  height: 250px;
+  position: absolute;
+  background-color: rgb(245, 241, 241);
+  border-radius: 7px;
+  top: 30vh;
+  left: 34%;
+  text-align: center;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-message.ui.segment .ui.form {
+  width: 90%;
+}
