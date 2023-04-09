@@ -3,11 +3,11 @@ import { createContext, useState } from "react";
 export const ModalContext = createContext();
 
 export const CustomProvider = ({ children }) => {
-  const [openModal, setOpenModal] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const obj = {
-    openModal,
-    setOpenModal,
+    modalOpen,
+    setModalOpen,
   };
 
   return <ModalContext.Provider value={obj}>{children}</ModalContext.Provider>;
