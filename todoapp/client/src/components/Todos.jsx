@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos } from "../store";
+import { fetchTodos, deleteTodo } from "../store";
 
 const Todos = () => {
   // Create a dispatch function
@@ -9,6 +9,11 @@ const Todos = () => {
   const { data: todos } = useSelector((state) => {
     return state.todosCombinedReducer;
   });
+
+  // Create a function to delete a task
+  const handleDeleteTodo = (todo) => {
+    dispatch(deleteTodo(todo));
+  };
 
   const todosList = todos.map((element) => {
     console.log(element.id);
@@ -22,7 +27,12 @@ const Todos = () => {
         </div>
         <div className="item actions">
           <div className="content icons">
-            <i className="trash alternate outline icon"></i>
+            <i
+              className="trash alternate outline icon"
+              onClick={() => {
+                handleDeleteTodo(element);
+              }}
+            ></i>
             <i className="edit outline icon"></i>
           </div>
         </div>
