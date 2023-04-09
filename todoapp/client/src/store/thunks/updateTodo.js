@@ -6,7 +6,7 @@ export const updateTodo = createAsyncThunk(
   async (updatedTodo) => {
     console.log(updatedTodo);
     await axios({
-      url: `http://localhost:3005/todos/${updatedTodo.id}`,
+      url: `https://todo-app-l60y.onrender.com/api/v1/todos/${updatedTodo.id}`,
       method: "PATCH",
       data: updatedTodo,
     });
