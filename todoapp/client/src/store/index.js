@@ -3,6 +3,7 @@ import { todosCombinedReducer } from "./slices/todosSlice";
 import { formCombinedReducer, enterTerm } from "./slices/formSlice";
 import { fetchTodos } from "./thunks/fetchTodos";
 import { createTodo } from "./thunks/createTodo";
+import { deleteTodo } from "./thunks/deleteTodo";
 
 export const store = configureStore({
   reducer: {
@@ -11,4 +12,4 @@ export const store = configureStore({
   },
 });
 
-export { fetchTodos, createTodo, enterTerm };
+export { fetchTodos, createTodo, deleteTodo, enterTerm };
