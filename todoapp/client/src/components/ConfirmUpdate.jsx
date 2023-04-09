@@ -3,7 +3,7 @@ import { updateTodo } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalContext } from "../context/ModalContext";
 
-const Confirmation = () => {
+const ConfirmUpdate = () => {
   const { editEl, setModalOpen } = useContext(ModalContext);
 
   const [input, setInput] = useState("");
@@ -58,4 +58,4 @@ const Confirmation = () => {
   );
 };
 
-export default Confirmation;
+export default ConfirmUpdate;

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { createPortal } from "react-dom";
 import { ModalContext } from "../context/ModalContext";
-import Confirmation from "./Confirmation";
+import ConfirmUpdate from "./ConfirmUpdate";
 
-const Modal = () => {
+const Modal = ({ children }) => {
   const { modalOpen, setModalOpen } = useContext(ModalContext);
 
   const handleModalClose = (e) => {
@@ -15,7 +15,8 @@ const Modal = () => {
   return createPortal(
     <div className="modal-container" onClick={(e) => handleModalClose(e)}>
       <div className="modal-content">
-        <Confirmation />
+        {/* <Confirmation /> */}
+        {children}
       </div>
     </div>,
     document.querySelector("#portal-container")

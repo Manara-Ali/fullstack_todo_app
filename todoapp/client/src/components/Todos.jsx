@@ -1,8 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos, deleteTodo } from "../store";
+import { fetchTodos } from "../store";
 import Modal from "./Modal";
 import { ModalContext } from "../context/ModalContext";
+import ConfirmDelete from "./ConfirmDelete";
+import ConfirmUpdate from "./ConfirmUpdate";
 
 const Todos = () => {
   // Create a dispatch function
@@ -10,14 +12,16 @@ const Todos = () => {
 
   const { modalOpen, setModalOpen, setEditEl } = useContext(ModalContext);
 
+  const [confirmModal, setConfirmModal] = useState(null);
+
   const { data: todos } = useSelector((state) => {
     return state.todosCombinedReducer;
   });
 
-  // Create a function to delete a task
-  const handleDeleteTodo = (todo) => {
-    dispatch(deleteTodo(todo));
-  };
+  // // Create a function to delete a task
+  // const handleDeleteTodo = (todo) => {
+  //   dispatch(deleteTodo(todo));
+  // };
 
   const handleModal = (obj) => {
     setEditEl(obj);
@@ -39,12 +43,15 @@ const Todos = () => {
             <i
               className="trash alternate outline icon"
               onClick={() => {
-                handleDeleteTodo(element);
+                // handleDeleteTodo(element);
+                setConfirmModal(<ConfirmDelete />);
+                return handleModal(element);
               }}
             ></i>
             <i
               className="edit outline icon"
               onClick={() => {
+                setConfirmModal(<ConfirmUpdate />);
                 return handleModal(element);
               }}
             ></i>
@@ -66,7 +73,7 @@ const Todos = () => {
         <p id="actions">Actions</p>
       </div>
       {todosList}
-      {modalOpen && <Modal />}
+      {modalOpen && <Modal>{confirmModal}</Modal>}
     </div>
   );
 };
