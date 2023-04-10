@@ -22,7 +22,7 @@ export const todosSlice = createSlice({
 
     builder.addCase(deleteTodo.fulfilled, (state, action) => {
       state.data = state.data.filter((element) => {
-        return element.id !== action.payload.id;
+        return element._id !== action.payload._id;
       });
     });
 
