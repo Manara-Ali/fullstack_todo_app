@@ -6,7 +6,7 @@ export const fetchTodos = createAsyncThunk("todos/fetch", async () => {
     "https://todo-app-l60y.onrender.com/api/v1/todos"
   );
 
-  const { data } = response;
+  const { data } = response.data;
 
-  return data;
+  return data.todos;
 });

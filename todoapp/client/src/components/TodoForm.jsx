@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { nanoid } from "@reduxjs/toolkit";
+// import { nanoid } from "@reduxjs/toolkit";
 import { enterTerm, createTodo } from "../store";
 
 const TodoForm = () => {
@@ -12,7 +12,7 @@ const TodoForm = () => {
   // Create a function to create new todo tasks
   const handleCreateTodo = (todo) => {
     const todoTask = {
-      id: nanoid(),
+      // id: nanoid(),
       task: todo,
       completed: false,
       createdAt: Date.now(),

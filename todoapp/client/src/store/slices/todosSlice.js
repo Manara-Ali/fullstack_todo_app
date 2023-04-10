@@ -3,6 +3,7 @@ import { fetchTodos } from "../thunks/fetchTodos";
 import { createTodo } from "../thunks/createTodo";
 import { deleteTodo } from "../thunks/deleteTodo";
 import { updateTodo } from "../thunks/updateTodo";
+import { current } from "@reduxjs/toolkit";
 
 export const todosSlice = createSlice({
   name: "todos",

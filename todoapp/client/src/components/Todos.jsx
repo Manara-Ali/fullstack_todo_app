@@ -15,7 +15,6 @@ const Todos = () => {
   const [confirmModal, setConfirmModal] = useState(null);
 
   const { data: todos } = useSelector((state) => {
-    console.log(state);
     return state.todosCombinedReducer;
   });
 
@@ -34,37 +33,38 @@ const Todos = () => {
     setModalOpen(true);
   };
 
-  // const todosList = todos.map((element) => {
-  //   return (
-  //     <div key={element.id} className="ui celled list">
-  //       <div className="item task">
-  //         <div className="content">{element.task}</div>
-  //       </div>
-  //       <div className="item created">
-  //         <div className="content">{element.createdAt}</div>
-  //       </div>
-  //       <div className="item actions">
-  //         <div className="content icons">
-  //           <i
-  //             className="trash alternate outline icon"
-  //             onClick={() => {
-  //               // handleDeleteTodo(element);
-  //               setConfirmModal(<ConfirmDelete />);
-  //               return handleModal(element);
-  //             }}
-  //           ></i>
-  //           <i
-  //             className="edit outline icon"
-  //             onClick={() => {
-  //               setConfirmModal(<ConfirmUpdate />);
-  //               return handleModal(element);
-  //             }}
-  //           ></i>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // });
+  const todosList = todos.map((element) => {
+    // console.log(element);
+    return (
+      <div key={element._id} className="ui celled list">
+        <div className="item task">
+          <div className="content">{element.task}</div>
+        </div>
+        <div className="item created">
+          <div className="content">{element.createdAt}</div>
+        </div>
+        <div className="item actions">
+          <div className="content icons">
+            <i
+              className="trash alternate outline icon"
+              onClick={() => {
+                // handleDeleteTodo(element);
+                setConfirmModal(<ConfirmDelete />);
+                return handleModal(element);
+              }}
+            ></i>
+            <i
+              className="edit outline icon"
+              onClick={() => {
+                setConfirmModal(<ConfirmUpdate />);
+                return handleModal(element);
+              }}
+            ></i>
+          </div>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div className="todo-list">
@@ -73,8 +73,8 @@ const Todos = () => {
         <p id="created">Created On</p>
         <p id="actions">Actions</p>
       </div>
-      {/* {todosList}
-      {modalOpen && <Modal>{confirmModal}</Modal>} */}
+      {todosList}
+      {modalOpen && <Modal>{confirmModal}</Modal>}
     </div>
   );
 };

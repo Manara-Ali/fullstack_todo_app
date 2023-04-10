@@ -19,6 +19,7 @@ const ConfirmDelete = () => {
     setModalOpen(false);
     dispatch(deleteTodo(todo));
   };
+
   return (
     <div className="modal-message ui segment">
       <div className="ui form">
