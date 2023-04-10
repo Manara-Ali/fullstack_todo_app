@@ -28,7 +28,7 @@ export const todosSlice = createSlice({
 
     builder.addCase(updateTodo.fulfilled, (state, action) => {
       state.data = state.data.map((element) => {
-        return element.id === action.payload.id ? action.payload : element;
+        return element._id === action.payload._id ? action.payload : element;
       });
     });
   },
